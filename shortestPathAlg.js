@@ -6,6 +6,7 @@
 // Example input: ['B6', 'D17', 'E2', 'E7', 'H14', 'J20', 'J2', 'L5']
 
 function findShortestPath(pointsArray) {
+  // Start and end at point A1 (the door)
   pointsArray.push('A1');
   var dict = {}, route, totalDistance, shortestRoute = 999999, finalroute;
   for (var j = 0; j < 100000; j++) {
@@ -25,6 +26,7 @@ function findShortestPath(pointsArray) {
   console.log(shortestRoute);
 }
 
+// Build json object containing all points and their distances from every other point
 function buildDict(pointsArray) {
   var point, distance, dict = {};
   for (var i = 0; i < pointsArray.length; i++) {
@@ -79,6 +81,7 @@ function calculateRoute2(points, dictbackup) {
   return route;
 }
 
+// based on route and distance between points, calculate distance traveled
 function calculateDistance(route, dict) {
   var startingPoint, nextPoint, total = 0;
   for (var i = 0; i < route.length; i++) {
